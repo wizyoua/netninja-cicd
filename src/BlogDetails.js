@@ -16,8 +16,9 @@ const BlogDetails = () => {
         }).catch(err => {
             console.log(err);
         });
-
     }
+
+    const methodDoesNotExist = () => { throw new Error('Method does not exist') };
     return (
         <div className="blog-details">
             {isPending && <div>Loading...</div>}
@@ -28,6 +29,7 @@ const BlogDetails = () => {
                     <p>Written by {blog.author}</p>
                     <div>{blog.body}</div>
                     <button onClick={handleClick}>delete</button>
+                    <button onClick={methodDoesNotExist}>Break the world</button>;
                 </article>
             )}
         </div>
